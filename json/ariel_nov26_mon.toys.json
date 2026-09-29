@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "6a311fa9f1369f8cba8309cc"
+  },
+  "name": "Yoyo",
+  "info": "a toy made of two round disks joined by a center axle, with a string wrapped around it",
+  "category": "Action",
+  "img_url": "yoyo.png",
+  "price": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a312001f1369f8cba8309cd"
+  },
+  "name": "Crayons",
+  "info": "a small stick of colored wax, charcoal, or chalk used for drawing, coloring, or writing",
+  "category": "Arts and Crafts",
+  "img_url": "crayons.png",
+  "price": 20,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a312054f1369f8cba8309ce"
+  },
+  "name": "Play-Doh",
+  "info": "a modeling compound for young children to make arts and crafts projects",
+  "category": "Arts and Crafts",
+  "img_url": "play-doh.png",
+  "price": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3120cef1369f8cba8309cf"
+  },
+  "name": "Jigsaw Puzzle",
+  "info": "a tiling puzzle that requires the assembly of interlocking and uniquely shaped pieces to reveal a complete image",
+  "category": "Education",
+  "img_url": "jigsaw-puzzle.png",
+  "price": 50,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3120f6f1369f8cba8309d0"
+  },
+  "name": "Fimo",
+  "info": "colorful modeling clay",
+  "category": "Arts and Crafts",
+  "img_url": "fimo.png",
+  "price": 15,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a312120f1369f8cba8309d1"
+  },
+  "name": "Rubik's Cube",
+  "info": "a 3D mechanical puzzle with six faces, each made up of nine colored squares",
+  "category": "Education",
+  "img_url": "cube.png",
+  "price": 25,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a31219af1369f8cba8309d2"
+  },
+  "name": "Teddy Bear",
+  "info": "a soft, stuffed toy made to look like a bear cub",
+  "category": "Doll",
+  "img_url": "bear.png",
+  "price": 30,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a312202f1369f8cba8309d3"
+  },
+  "name": "Tamagotchi",
+  "info": "a handheld digital pet created in Japan by the toy company Bandai",
+  "category": "Simulation",
+  "img_url": "tamagotchi.png",
+  "price": 50,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a31222df1369f8cba8309d4"
+  },
+  "name": "Webkinz",
+  "info": "a popular line of plush stuffed animals that are paired with an online virtual world",
+  "category": "Simulation",
+  "img_url": "webkinz.png",
+  "price": 80,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3122c9f1369f8cba8309d5"
+  },
+  "name": "Bratz Doll",
+  "info": "a line of trendy fashion dolls created by Carter Bryant and manufactured by MGA Entertainment",
+  "category": "Dolls",
+  "img_url": "bratz.png",
+  "price": 70,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3124b8f1369f8cba8309d6"
+  },
+  "name": "Toy Soldier",
+  "info": "a miniature figurine of a military service member",
+  "category": "Dolls",
+  "img_url": "soldier.png",
+  "price": 15,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3124faf1369f8cba8309d7"
+  },
+  "name": "Slime",
+  "info": "a gooey, stretchy, and squishy substance that behaves like both a solid and a liquid",
+  "category": "Arts and Crafts",
+  "img_url": "slime.png",
+  "price": 5,
+  "__v": 0
+}]
