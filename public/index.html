@@ -1,89 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 
   <title>API Documentation</title>
 </head>
+
 <body>
-  <h1>API Documentation</h1>
+  <h1 class="display-2 text-center">API Documentation</h1>
   <div class="container">
-    <h2>API DOCS</h2>
-    <h2>TOYS DOCS</h2>
+    <h2  class="display-5">TOYS DOCS</h2>
     <table class="table table-striped">
       <tr>
         <th>Method</th>
         <th>Path</th>
         <th>Info</th>
-        <th>Body</th>
+        <th>Parameters / Request Body</th>
       </tr>
       <tr>
         <td>GET</td>
         <td>/toys</td>
-        <td>You have the option to get the items from toys collection , ?s=</td>
-        <td>No body</td>
-      </tr>
-      <tr>
-        <td>GET</td>
-        <td>/toys/single/:id</td>
-        <td>You have the option to get a single item from the toys collection by its ID</td>
-        <td>No body</td>
+        <td>Returns a list of toys according to the query parameters you use.</td>
+        <td>
+          <li><strong>limit</strong>: the maximum number of toys to return. <br>
+            <a href="https://mongo-project-nu.vercel.app/toys?limit=5">
+              https://mongo-project-nu.vercel.app/toys?limit=5</a>
+          </li>
+          <li><strong>skip</strong>: the number of toys to skip before starting to return results. <br>
+            <a href="https://mongo-project-nu.vercel.app/toys?skip=5">
+              https://mongo-project-nu.vercel.app/toys?skip=5</a>
+          </li>
+        </td>
       </tr>
       <tr>
         <td>GET</td>
         <td>/toys/search</td>
-        <td>You have the option to get the items from toys collection , ?s=</td>
-        <td>No body</td>
+        <td>Returns the list of toys that match the search query, either by name or description.</td>
+        <td>
+          <li><strong>s</strong>: the search query to match against toy names or descriptions.<br>
+            <a href="https://mongo-project-nu.vercel.app/toys/search?s=yoyo">
+              https://mongo-project-nu.vercel.app/toys/search?s=yoyo</a>
+          </li>
+        </td>
       </tr>
       <tr>
         <td>GET</td>
         <td>/toys/category/:catName</td>
-        <td>You have the option to get the items from toys collection by category</td>
-        <td>No body</td>
+        <td>Returns the list of toys that belong to the specified category.</td>
+        <td>
+          <li><strong>catName</strong>: the name of the category to filter toys by. <br>
+            <a href="https://mongo-project-nu.vercel.app/toys/category/arts">
+              https://mongo-project-nu.vercel.app/toys/category/arts</a>
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/toys/single/:id</td>
+        <td>Returns a single toy item by its ID.</td>
+        <td>
+          <li><strong>id</strong>: the ID of the toy to retrieve. <br>
+            <a href="https://mongo-project-nu.vercel.app/toys/single/6a3120f6f1369f8cba8309d0">
+              https://mongo-project-nu.vercel.app/toys/single/6a3120f6f1369f8cba8309d0</a>
+          </li>
+        </td>
       </tr>
       <tr>
         <td>GET</td>
         <td>/toys/count</td>
-        <td>You have the option to get the count of items from the toys collection</td>
-        <td>No body</td>
+        <td>Returns the total count of toys in the collection.</td>
+        <td>
+          <li>No body required for this request. Example: <a href="https://mongo-project-nu.vercel.app/toys/count">
+              https://mongo-project-nu.vercel.app/toys/count</a></li>
+        </td>
       </tr>
       <tr>
         <td>POST</td>
         <td>/toys</td>
-        <td>You have the option to add a new item to the toys collection</td>
-        <td>JSON body with toy details</td>
+        <td>Adds a new item to the toys collection. You have to use a JSON body with toy details, token is required.
+        </td>
+        <td>
+          <li>JSON body with toy details in the following format: <br>
+            <pre>{
+    "name":"String",
+  "info":"String",
+  "category":"String",
+  "img_url":"String",
+  "price" :"Number",
+  "user_id": "String"
+}</pre>
+          </li>
+        </td>
       </tr>
       <tr>
         <td>PUT</td>
         <td>/toys/:id</td>
-        <td>You have the option to update an existing item in the toys collection by its ID</td>
-        <td>JSON body with updated toy details</td>
+        <td>Updates an existing item in the toys collection by its ID. You have to use a JSON body with updated toy
+          details, and be connected with a token.</td>
+        <td>
+          <li><strong>id</strong>: the ID of the toy to update. <br>
+            <a href="https://mongo-project-nu.vercel.app/toys/single/6a3120f6f1369f8cba8309d0">
+              https://mongo-project-nu.vercel.app/toys/single/6a3120f6f1369f8cba8309d0</a>
+          </li>
+          <li>JSON body with updated toy details in the following format: <br>
+            <pre>{
+    "name":"String",
+  "info":"String",
+  "category":"String",
+  "img_url":"String",
+  "price" :"Number",
+  "user_id": "String"
+}</pre>
+          </li>
+        </td>
       </tr>
       <tr>
         <td>DELETE</td>
         <td>/toys/:id</td>
-        <td>You have the option to delete an existing item from the toys collection by its ID</td>
-        <td>No body</td>
+        <td>Deletes an existing item from the toys collection by its ID. You have to be connected with a token.</td>
+        <td>
+          <li><strong>id</strong>: the ID of the toy to delete.</li>
+        </td>
       </tr>
     </table>
   </div>
 
-   <div class="container">
-    <h2>USERS DOCS</h2>
+  <div class="container">
+    <h2  class="display-5">USERS DOCS</h2>
     <table class="table table-striped">
       <tr>
         <th>Method</th>
         <th>Path</th>
         <th>Info</th>
-        <th>Body</th>
+        <th>Parameters / Request Body</th>
       </tr>
       <tr>
         <td>GET</td>
         <td>/users</td>
-        <td>Since no-one can access user data without proper authorization, this endpoint returns the list of users</td>
+        <td>Test endpoint to check if the server is running.</td>
         <td>No body</td>
       </tr>
       <tr>
@@ -94,18 +153,34 @@
       </tr>
       <tr>
         <td>POST</td>
-        <td>/users/register</td>
-        <td>You have the option to register a new user</td>
-        <td>JSON body with user details</td>
+        <td>/users</td>
+        <td>Creates a new user.</td>
+        <td>
+          <li>JSON body with user details in the following format: <br>
+          <pre>{
+  "name": "String",
+  "email": "String",
+  "password": "String",
+  "role": "String"
+}</pre>
+        </td>
       </tr>
       <tr>
         <td>POST</td>
         <td>/users/login</td>
-        <td>You have the option to log in an existing user</td>
-        <td>JSON body with user credentials</td>
+        <td>Log-in as an existing user.</td>
+        <td>
+          <li>JSON body with user credentials in the following format: <br>
+          <pre>{
+  "email": "String",
+  "password": "String"
+}</pre>
+        </li>
+        </td>
       </tr>
       <tr>
     </table>
   </div>
 </body>
+
 </html>
