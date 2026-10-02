@@ -15,7 +15,7 @@
   },
   "name": "Crayons",
   "info": "a small stick of colored wax, charcoal, or chalk used for drawing, coloring, or writing",
-  "category": "Arts and Crafts",
+  "category": "Arts",
   "img_url": "crayons.png",
   "price": 20,
   "__v": 0
@@ -26,7 +26,7 @@
   },
   "name": "Play-Doh",
   "info": "a modeling compound for young children to make arts and crafts projects",
-  "category": "Arts and Crafts",
+  "category": "Arts",
   "img_url": "play-doh.png",
   "price": 10,
   "__v": 0
@@ -48,7 +48,7 @@
   },
   "name": "Fimo",
   "info": "colorful modeling clay",
-  "category": "Arts and Crafts",
+  "category": "Arts",
   "img_url": "fimo.png",
   "price": 15,
   "__v": 0
@@ -125,7 +125,7 @@
   },
   "name": "Slime",
   "info": "a gooey, stretchy, and squishy substance that behaves like both a solid and a liquid",
-  "category": "Arts and Crafts",
+  "category": "Arts",
   "img_url": "slime.png",
   "price": 5,
   "__v": 0

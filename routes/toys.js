@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/",async(req,res) => {
   try{
-    const limit = 5;
+    const limit = 10;
     const skip = req.query.skip || 0;
     const data = await ToyModel
     .find({})
@@ -20,17 +20,6 @@ router.get("/",async(req,res) => {
   }
 })
 
-router.get("/single/:id",async(req,res) => {
-  try{
-    const id = req.params.id;
-    const data = await ToyModel.findOne({_id:id});
-    res.json(data);
-  }
-  catch(err){
-    console.log(err);
-    res.status(502).json({err})
-  }
-})
 
 router.get("/search",async(req,res) => {
   try{
@@ -49,11 +38,25 @@ router.get("/search",async(req,res) => {
   }
 })
 
+
 router.get("/category/:catName",async(req,res) => {
   const category = req.params.catName;
   const catExp = new RegExp(category, "i")
   const data = await ToyModel.find({category:catExp});
   res.json(data)
+})
+
+
+router.get("/single/:id",async(req,res) => {
+  try{
+    const id = req.params.id;
+    const data = await ToyModel.findOne({_id:id});
+    res.json(data);
+  }
+  catch(err){
+    console.log(err);
+    res.status(502).json({err})
+  }
 })
 
 
