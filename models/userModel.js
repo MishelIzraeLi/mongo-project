@@ -8,8 +8,9 @@ const schema = new mongoose.Schema({
   email:String,
   password:String,
   role: {
-    type:String,
-    default:"user"
+  type: String,
+  enum: ["admin", "user"],
+  default: "user"
   }
 },{timestamps:true});
 
@@ -26,6 +27,7 @@ exports.validUser = (_reqBody) => {
     name:Joi.string().min(2).max(99).required(),
     email:Joi.string().min(2).max(99).email().required(),
     password:Joi.string().min(3).max(99).required(),
+    role: Joi.string().valid("admin", "user")
   })
 
   return joiSchema.validate(_reqBody)
