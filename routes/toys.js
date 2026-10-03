@@ -1,119 +1,128 @@
 const express = require("express");
-const {ToyModel, validateToy} = require("../models/toyModel")
+const { ToyModel, validateToy } = require("../models/toyModel")
 const { auth } = require("../middlewares/auth");
 const router = express.Router();
 
 
-router.get("/",async(req,res) => {
-  try{
+router.get("/", async (req, res) => {
+  try {
     const limit = 10;
     const skip = req.query.skip || 0;
     const data = await ToyModel
-    .find({})
-    .limit(limit)
-    .skip(skip)
+      .find({})
+      .limit(limit)
+      .skip(skip)
     res.json(data);
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
 
-router.get("/search",async(req,res) => {
-  try{
+router.get("/search", async (req, res) => {
+  try {
+    const limit = 10;
+    const skip = req.query.skip || 0;
     const searchQ = req.query.s
     const searchExp = new RegExp(searchQ, "i")
-    const data = await ToyModel.find({ $or: [
+    const data = await ToyModel.find({
+      $or: [
         { name: searchExp },
         { info: searchExp }
       ]
-    });
+    })
+      .limit(limit)
+      .skip(skip);;
     res.json(data);
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
 
-router.get("/category/:catName",async(req,res) => {
+router.get("/category/:catName", async (req, res) => {
+  const limit = 10;
+  const skip = req.query.skip || 0;
   const category = req.params.catName;
   const catExp = new RegExp(category, "i")
-  const data = await ToyModel.find({category:catExp});
+  const data = await ToyModel.find({ category: catExp })
+    .limit(limit)
+    .skip(skip);
   res.json(data)
 })
 
 
-router.get("/single/:id",async(req,res) => {
-  try{
+router.get("/single/:id", async (req, res) => {
+  try {
     const id = req.params.id;
-    const data = await ToyModel.findOne({_id:id});
+    const data = await ToyModel.findOne({ _id: id });
     res.json(data);
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
 
-router.get("/count",async(req,res) => {
-  try{
+router.get("/count", async (req, res) => {
+  try {
     const count = await ToyModel.countDocuments({})
-    res.json({count});
+    res.json({ count });
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
 
-router.post("/", auth, async(req,res) => {
+router.post("/", auth, async (req, res) => {
   const validBody = validateToy(req.body);
-  if(validBody.error){
+  if (validBody.error) {
     return res.status(400).json(validBody.error.details)
   }
-  try{
+  try {
     const toy = new ToyModel(req.body);
     toy.user_id = req.tokenData._id;
     await toy.save();
     res.json(toy)
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
-router.put("/:id", auth, async(req,res) => {
+router.put("/:id", auth, async (req, res) => {
   const validBody = validateToy(req.body);
-  if(validBody.error){
+  if (validBody.error) {
     return res.status(400).json(validBody.error.details)
   }
-  try{
-  const id = req.params.id
-   const data = await ToyModel.updateOne({_id:id,user_id:req.tokenData._id},req.body)
-   res.json(data);
+  try {
+    const id = req.params.id
+    const data = await ToyModel.updateOne({ _id: id, user_id: req.tokenData._id }, req.body)
+    res.json(data);
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 
-router.delete("/:id", auth, async(req,res) => {
-  try{
+router.delete("/:id", auth, async (req, res) => {
+  try {
     const id = req.params.id
-   const data = await ToyModel.deleteOne({_id:id,user_id:req.tokenData._id})
-   res.json(data);
+    const data = await ToyModel.deleteOne({ _id: id, user_id: req.tokenData._id })
+    res.json(data);
   }
-  catch(err){
+  catch (err) {
     console.log(err);
-    res.status(502).json({err})
+    res.status(502).json({ err })
   }
 })
 

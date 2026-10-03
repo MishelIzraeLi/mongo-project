@@ -28,11 +28,7 @@
         <td>Returns a list of toys according to the query parameters you use.</td>
         <td>
           <ul>
-            <li><strong>limit</strong>: the maximum number of toys to return. <br>
-            <a href="https://mongo-project-nu.vercel.app/toys?limit=5">
-              https://mongo-project-nu.vercel.app/toys?limit=5</a>
-            </li>
-            <li><strong>skip</strong>: the number of toys to skip before starting to return results. <br>
+            <li><strong>skip</strong>: the number of toys to skip before starting to return results. (default: 0) <br>
               <a href="https://mongo-project-nu.vercel.app/toys?skip=5">
                 https://mongo-project-nu.vercel.app/toys?skip=5</a>
             </li>
@@ -105,7 +101,6 @@
   "category": "String",
   "img_url": "String",
   "price": "Number",
-  "user_id": "String"
 }
 </pre>
             </li>
@@ -129,7 +124,6 @@
   "category": "String",
   "img_url": "String",
   "price": "Number",
-  "user_id": "String"
 }</pre>
             </li>
           </ul>
